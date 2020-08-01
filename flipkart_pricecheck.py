@@ -15,8 +15,14 @@ def flipkart_price_checker():
     print("Fetching price...")
     #js_test tracks the price
     js_test = soup.find('div', attrs={'class':'_1vC4OE _3qQ9m1'})
-    print(js_test.text)
-    
+    price = js_test.text
+    #price = price[1:]
+    print(price)
+    with open('logs.txt','a', encoding="utf-8") as f:
+    	f.write(current_time + '          ')
+    	f.write(price)
+    	f.write('\n')
+        
 while True: 
     flipkart_price_checker()
     print("Will fetch again after 1 minute. To stop press ctl + c...")
